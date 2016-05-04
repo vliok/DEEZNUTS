@@ -18,7 +18,7 @@ public class ArrayPriorityQueue
     {
 	_list.add(e);
     }
-    public Comparable peekMin() 
+    public Object peekMin() 
     {
 	Comparable min = _list.get(0);
 	for (int i = 0; i < _list.size(); i++) {
@@ -27,7 +27,7 @@ public class ArrayPriorityQueue
 	}
 	return min;
     }
-    public Comparable removeMin()
+    public Object removeMin()
     {
 	int min = 0;
 	for (int i = 0; i < _list.size(); i++) 
