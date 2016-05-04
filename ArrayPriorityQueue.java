@@ -1,5 +1,5 @@
 /*
-Team lmaoxD -- Nobel Gautam, Alan Chen, Vincent Liok
+lmao xD -- Nobel Gautam, Alan Chen, Vincent Liok
 APCS2 pd10
 HW35 -- Privileged Status Gets You to the Front of the Line
 2015-05-05
@@ -7,28 +7,27 @@ HW35 -- Privileged Status Gets You to the Front of the Line
 
 import java.util.ArrayList;
 
-public class ArrayPriorityQueue<T>
+public class ArrayPriorityQueue
 {
-    ArrayList<T> _list;
+    ArrayList<Comparable> _list;
     public ArrayPriorityQueue()
     {
-        _list = new ArrayList<T>();
+        _list = new ArrayList();
     }
-    public void add(T e)
+    public void add(int e)
     {
 	_list.add(e);
     }
-    public T peekMin() 
+    public Comparable peekMin() 
     {
-	T min = _list.get(0);
-	for (T x : _list) 
-	{
-	    if (x.compareTo(min) < 0) 
-		min = x;
+	Comparable min = _list.get(0);
+	for (int i = 0; i < _list.size(); i++) {
+	    if (_list.get(i).compareTo(min) < 0)
+		min = _list.get(i);
 	}
 	return min;
     }
-    public T removeMin()
+    public Comparable removeMin()
     {
 	int min = 0;
 	for (int i = 0; i < _list.size(); i++) 
@@ -36,11 +35,25 @@ public class ArrayPriorityQueue<T>
 	    if (_list.get(i).compareTo(_list.get(min)) < 0) 
 		min = i;
 	}
-	return _list.remove(i);
+	return _list.remove(min);
     }
     public boolean isEmpty()
     {
-	return true;
+	return _list.size() == 0;
     }
 
+    public static void main(String[] args) {
+	ArrayPriorityQueue test = new ArrayPriorityQueue();
+
+	test.add(2);
+	test.add(3);
+	test.add(0);
+
+	System.out.println(test.peekMin());
+	System.out.println(test.removeMin());
+	System.out.println(test.isEmpty());
+	System.out.println(test.removeMin());
+	System.out.println(test.removeMin());
+	System.out.println(test.isEmpty());
+    }
 }
